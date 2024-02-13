@@ -40,4 +40,4 @@ $python -m pip install -r requirements.txt --index $pypi_index
 locale-gen zh_CN.GB18030
 
 # Install VeighNa
-# $python -m pip install . --index $pypi_index
+$python -m pip install . --index $pypi_index
