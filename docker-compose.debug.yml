@@ -10,10 +10,13 @@ services:
     volumes:
       - .:/app
       - /tmp/.X11-unix:/tmp/.X11-unix
-    command: ["sh", "-c", "pip install debugpy -t /tmp && python3 /tmp/debugpy --wait-for-client --listen 0.0.0.0:5678 setup.py "]
+    command: ["sh", "-c", "pip install debugpy -t /tmp && python3 /tmp/debugpy --wait-for-client --listen 0.0.0.0:5678 run.py "]
     ports:
       - "5678:5678"
     environment:
       - DISPLAY=:1
       - QT_DEBUG_PLUGINS=1
       - TZ=Australia/Brisbane
+    privileged: true
+    devices:
+      - "/dev/dri/card0:/dev/dri/card0"
